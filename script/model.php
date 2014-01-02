@@ -24,9 +24,9 @@ foreach ($servers as $name => $info) {
 
 	if (empty($status->uptime)) $status->uptime = '<span class="label label-important">DOWN</span>';
 
-	$status->load[0]          = sprintf('%.2f', $status->load[0]);
-	$status->load[1]          = sprintf('%.2f', $status->load[1]);
-	$status->load[2]          = sprintf('%.2f', $status->load[2]);
+	$status->load->one	  = sprintf('%.2f', $status->load->one);
+	$status->load->five  	  = sprintf('%.2f', $status->load->five);
+	$status->load->fifteen    = sprintf('%.2f', $status->load->fifteen);
 
 	$status->memory->used     = $status->memory->used * 1024;
 	$status->memory->total    = $status->memory->total * 1024;

@@ -6,7 +6,9 @@ $return_data['disk']['total'] = disk_total_space('/');
 $return_data['disk']['used']  = $return_data['disk']['total'] - $return_data['disk']['free'];
 
 /** LOAD **/
-$return_data['load'] = sys_getloadavg();
+$return_data['load']['one'] = $loadArray[0];
+$return_data['load']['five'] = $loadArray[1];
+$return_data['load']['fifteen'] = $loadArray[2];
 
 /** MEMORY **/
 $fh = fopen('/proc/meminfo', 'r');
@@ -32,6 +34,6 @@ $return_data['uptime'] = $uptime_days > 0 ? $uptime_days . ' day'.($uptime_days 
 
 header('Content-Type: text/plain');
 
-print json_encode($return_data, JSON_PRETTY_PRINT);
+print json_encode($return_data);
 
 ?>
